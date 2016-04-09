@@ -3,4 +3,5 @@
 void main()
 {
     helloFunc();
+    goodbyeFunc();
 }
