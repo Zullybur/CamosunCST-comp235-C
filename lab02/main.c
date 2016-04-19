@@ -40,11 +40,17 @@ int isPalindrome(char* s) {
 
 int main(int argc, char** argv)
 {
-    for (int i=0; i < argc; i++) {
-        printf("%s\n", argv[i]);
+    if (argc <= 1) {
+        printf("Usage: pal str [str]*\n");
     }
-    char* result = strrev(argv[1]);
-    printf("Reversed: %s\n",result);
-    printf("Palindrome? %s\n", isPalindrome(argv[1]) ? "YES" : "NO");
-    free(result);
+    for (int i = 1; i < argc; i++) {
+        if (isPalindrome(argv[i])) {
+            printf("%s\n", argv[i]);
+        } else {
+            char* reverseInput = strrev(argv[i]);
+            printf("%s%s\n", reverseInput, argv[i]);
+            free(reverseInput);
+        }
+    }
+    return 0;
 }
